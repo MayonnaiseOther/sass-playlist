@@ -2,7 +2,6 @@
 @import "variables";
 @import "mixins";
 
-
 #main-nav {
   background: $deepBlue;
 
@@ -14,6 +13,9 @@
   li {
     float: left;
     width: (100% / 6);
+    @include mQ(600px) {
+      width: 100%;
+    }
   }
 
   a {
@@ -22,13 +24,13 @@
     padding: 16px;
     display: block;
     text-align: center;
-    &:hover{
-        background:#222;
+
+    &:hover {
+      background: lighten($deepBlue, 6);
     }
   }
 }
 //end main nav
-
 
 section h1 {
   font-size: $sectionHeading;
@@ -51,27 +53,40 @@ section h1 {
   }
 }
 
-#services{
-  margin-bottom:60px;
-  li{
-    float:left;
+#services {
+  margin-bottom: 60px;
+
+  li {
+    float: left;
     box-sizing: border-box;
     text-align: center;
     width: (100% / 3);
   }
-  img{
+
+  img {
     width: 60%;
     margin: 20px 20%;
   }
-  a{
+
+  a {
     text-decoration: none;
     color: $deepBlue;
     font-weight: bold;
-    &:hover{
-      color:red;
+
+    &:hover {
+      color: complement($deepBlue);
     }
   }
-  ul{
+
+  ul {
     @include clearfix;
+  }
+}
+
+#projects li {
+  @include grid(3, 3%);
+
+  img {
+    width: 100%;
   }
 }
